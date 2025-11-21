@@ -1,4 +1,5 @@
 /*
+https://usaco.org/index.php?page=viewproblem2&cpid=810
 until reached end:
 	find tastiest value to the right
 	eat it until farmer john catches up

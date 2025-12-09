@@ -39,8 +39,8 @@ auto firstTrue = [](double low, double high, function<bool(double)> f) {
 };
 
 int main() {
-    // freopen("angry.in", "r", stdin);
-    // freopen("angry.out", "w", stdout);
+    freopen("angry.in", "r", stdin);
+    freopen("angry.out", "w", stdout);
     cin.tie(nullptr); ios::sync_with_stdio(false);
     
     int n;

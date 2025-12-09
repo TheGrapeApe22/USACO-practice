@@ -27,14 +27,39 @@ namespace {
     }
     template<typename T> void println(T v) {print(v); cout << "\n";}
 }
-
+/*
+length (n, 0)
+max (n, 0)
+for each letter in v1
+    for each letter in v2
+        if matching:
+            length[i] = max[i]+1
+    update max array
+            
+*/
 int main() {
-    // freopen("file.in", "r", stdin);
-    // freopen("file.out", "w", stdout);
     cin.tie(nullptr); ios::sync_with_stdio(false);
     
-    int n;
-    cin >> n;
-
-    for (int i = 0; i < n; i++) {}
+    int n, m;
+    cin >> n >> m;
+    
+    vec<int> v1(n), v2(m);
+    
+    for (int i = 0; i < n; i++)
+        cin >> v1[i];
+    for (int i = 0; i < m; i++)
+        cin >> v2[i];
+    
+    vec<int> length(m, 0), maxlen(m, 0);
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            if (v1[i] == v2[j]) {
+                length[j] = maxlen[j] + 1;
+            }
+        }
+        for (int j = 1; j < m; j++) {
+            maxlen[j] = max(maxlen[j-1], length[j-1]);
+        }
+    }
+    
 }

@@ -1,3 +1,3 @@
-cpp/.vscode
-cpp/src/a.out
-cpp/src/input.txt
+.vscode
+src/a.out
+src/input.txt

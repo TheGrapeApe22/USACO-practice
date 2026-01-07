@@ -1,3 +1,5 @@
+// https://cses.fi/problemset/model/3403/
+
 #include <bits/stdc++.h>
 #define vec vector
 #define ln "\n"
@@ -57,7 +59,7 @@ int main() {
     }
 
     vec<int> maxLen (m);
-    vec<int> element (m, -1);
+    vec<vec<int>> element (m);
     auto getMaxLen = [&](int i) {
         return i==-1 ? 0 : maxLen[i];
     };
@@ -79,32 +81,27 @@ int main() {
         for (int j : currInstances) {
             if (getMaxLen(j-1)+1 > maxLen[j]) {
                 maxLen[j] = getMaxLen(j-1)+1;
-                element[j] = firstTrue(0, j, [&](int k){return maxLen[k] == maxLen[j]-1;});
-                if (maxLen[j] == 1)
-                    element[j] = -1;
+                int prev = firstTrue(0, j, [&](int k){return maxLen[k] == maxLen[j]-1;});
+                if (maxLen[j] > 1)
+                    element[j] = element[prev];
+                element[j].push_back(b[j]);
             }
         }
         for (int j = 1; j < m; j++) {
             if (maxLen[j] < maxLen[j-1]) {
                 maxLen[j] = maxLen[j-1];
-                element[j] = -1;
+                // element[j] = -1;
             }
         }
         // cout << maxLen << ln << element << ln << ln;
     }
-
-    // cout << maxLen << ln << element << ln << ln;
-    int i = m-1;
-    while (i>=0 && element[i] == -1) i--;
-    vec<int> ans;
-    while (element[i] != -1) {
-        ans.push_back(b[i]);
-        i = element[i];
+    int maxI = 0;
+    for (int i = 0; i < m; i++) {
+        if (element[i].size() > element[maxI].size())
+            maxI = i;
     }
-    ans.push_back(b[i]);
-
-    cout << ans.size() << ln;
-    for (int j = ans.size()-1; j >= 0; j--)
-        cout << ans[j] << " ";
+    cout << element[maxI].size() << ln;
+    for (int x : element[maxI])
+        cout << x << " ";
     cout << ln;
 }

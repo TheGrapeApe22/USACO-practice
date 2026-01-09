@@ -1,3 +1,4 @@
+// https://usaco.org/index.php?page=viewproblem2&cpid=1467
 #include <bits/stdc++.h>
 #define vec vector
 #define ln "\n"
@@ -58,6 +59,7 @@ int solve(vec<string> prints, int n, int a, int b) {
         for (int x = 0; x < n; x++) {
             if (prints[y][x] == 'B') {
                 if (!setStar(y, x, 1)) return -1;
+                if (!inBounds(y-b, x-a)) return -1; // og has to have (x-a, y-b)
                 if (!setStar(y-b, x-a, 1)) return -1;
             }
         }
@@ -83,18 +85,17 @@ int solve(vec<string> prints, int n, int a, int b) {
                 if (y<b || x<a) {
                     if (!setStar(y, x, 1)) return -1;
                 }
-                // if they don't exist, you have to exist
+                // if og doesn't have (x-a, y-b), og has to have (x,y) to satisfy gray
                 else if (stars[y-b][x-a] == 2) {
                     if (!setStar(y, x, 1)) return -1;
                 }
-                // if they do exist, it could be (you exist and they disappeared) or (you don't exist)
-                // if you don't exist, they have to exist
-                else if (stars[y][x] == 2) {
-                    if (!setStar(y-b, x-a, 1)) return -1;
+                // if og has (x-a, y-b), og could be either, so set to (no star)
+                else if (stars[y-b][x-a] == 1) {
+                    setStar(y, x, 2); // could possibly reject, that's intended
                 }
-                // if you do exist, they could (exist and disappear) or (not exist)
-                else if (stars[y][x] == 0 && stars[y-b][x-a] == 0) {
-                    if (!setStar(y, x, 1)) return -1;
+                else {
+                    // i guess this is the edge case where a=0, b=0
+                    setStar(y, x, 1);
                 }
             }
         }

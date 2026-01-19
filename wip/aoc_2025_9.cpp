@@ -5,7 +5,7 @@
 #define all(x) (x).begin(), (x).end()
 using namespace std;
 using ll = long long;
-using pii = pair<int, int>;
+using pii = pair<ll, ll>;
 namespace {
     template<typename it> void print(it, it);
     template<typename T> void print(T& v) {print(all(v));}
@@ -27,39 +27,26 @@ namespace {
     }
     template<typename T> void println(T v) {print(v); cout << "\n";}
 }
-/*
-length (n, 0)
-max (n, 0)
-for each letter in v1
-    for each letter in v2
-        if matching:
-            length[i] = max[i]+1
-    update max array
-            
-*/
+
 int main() {
     cin.tie(nullptr); ios::sync_with_stdio(false);
     
-    int n, m;
-    cin >> n >> m;
-    
-    vec<int> v1(n), v2(m);
-    
-    for (int i = 0; i < n; i++)
-        cin >> v1[i];
-    for (int i = 0; i < m; i++)
-        cin >> v2[i];
-    
-    vec<int> length(m, 0), maxlen(m, 0);
-    for (int i = 0; i < n; i++) {
-        for (int j = 0; j < m; j++) {
-            if (v1[i] == v2[j]) {
-                length[j] = maxlen[j] + 1;
-            }
-        }
-        for (int j = 1; j < m; j++) {
-            maxlen[j] = max(maxlen[j-1], length[j-1]);
-        }
+    int n; cin >> n;
+
+    map<pii, int> colors;
+    vec<pii> points (n);
+    for (pii& p : points) {
+        cin >> p.first >> p.second;
     }
     
+    auto area = [&](int i, int j) {
+        return (points[i].first - points[j].first+1)*(points[i].second - points[j].second+1);
+    };
+    ll maxArea = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = i+1; j < n; j++) {
+            
+        }
+    }
+    cout << maxArea << ln;
 }

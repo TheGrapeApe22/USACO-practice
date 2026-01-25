@@ -1,3 +1,4 @@
+// https://usaco.org/index.php?page=viewproblem2&cpid=915
 #include <bits/stdc++.h>
 #define vec vector
 #define ln "\n"

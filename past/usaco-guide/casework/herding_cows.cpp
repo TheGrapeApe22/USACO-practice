@@ -1,4 +1,5 @@
 // https://usaco.org/index.php?page=viewproblem2&cpid=915
+// i am so stupid.
 #include <bits/stdc++.h>
 #define vec vector
 #define ln "\n"
@@ -43,22 +44,9 @@ int main() {
         cout << 0 << ln << 0 << ln;
         return 0;
     }
-    // if b-a < c-b:
-    if (b-a < c-b) {
-        // max = c-b-1
-        // if b-a = 1, min = max
-        if (b-a == 1) cout << c-b-1;
-        // else min = b-a-1
-        else cout << b-a-1;
-        cout << ln << c-b-1 << ln;
-    }
-    else {
-    // else:
-        // max = b-a-1
-        // if c-b = 1, min = max
-        if (c-b == 1) cout << b-a-1;
-        // else min = c-b-1
-        else cout << c-b-1;
-        cout << ln << b-a-1 << ln;
-    }
+    if (b-a == 2 || c-b == 2)
+        cout << 1 << ln;
+    else
+        cout << 2 << ln;
+    cout << max(b-a, c-b)-1 << ln;
 }

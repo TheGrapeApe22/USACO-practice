@@ -1,6 +1,7 @@
 ## Welcome to USACO-practice
-In this repo are my solutions to hundreds of competitive programming problems, which I have been practicing since 2023.
-* Includes problems from USACO, CSES, Codeforces, LeetCode, etc, some of which are my contest submissions.
-* Thanks to [USACO Guide](https://usaco.guide/) for being an amazing prep resource!
+Here are my solutions to hundreds of competitive programming problems! This is my journey through USACO and beyond, which dates all the way back to 2023.
 
-See `solutions/` for the full list.
+* Includes problems from USACO, CSES, Codeforces, LeetCode, etc, some of which are my contest submissions.
+* I'm extremely thankful for the contributors of [USACO Guide](https://usaco.guide/), which has been an amazing prep resource!
+
+For my full list of solutions, see the `solutions/` folder.

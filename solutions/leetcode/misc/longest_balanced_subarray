@@ -1,0 +1,29 @@
+// https://leetcode.com/problems/longest-balanced-subarray-i
+class Solution {
+public:
+    int longestBalanced(vector<int>& nums) {
+        int n = nums.size();
+        int ans = 0;
+        for (int l = 0; l < n; l++) {
+            unordered_map<int, int> freq;
+            int numOdds = 0, numEvens = 0;
+            // [l, r)
+            for (int r = l; r < n; r++) {
+                freq[nums[r]]++;
+                if (freq[nums[r]] == 1) {
+                    if (nums[r] % 2 == 1)
+                        numOdds++;
+                    else
+                        numEvens++;
+                }
+                if (numOdds == numEvens) {
+                    // cout << l << " " << r << "\n";
+                    ans = max(ans, r - l + 1);
+                }
+            }
+            if (numOdds == numEvens)
+                ans = max(ans, n - l);
+        }
+        return ans;
+    }
+};

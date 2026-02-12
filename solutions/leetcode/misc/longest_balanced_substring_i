@@ -1,0 +1,24 @@
+// https://leetcode.com/problems/longest-balanced-substring-i/
+// easy mindless brute force problem WHY IS LEETCODE DAILY SO BAD?
+class Solution {
+public:
+    int longestBalanced(string s) {
+        int n = s.size();
+        int ans = 0;
+        for (int l = 0; l < n; l++) {
+            vector<int> freq (26);
+            for (int r = l; r < n; r++) {
+                freq[s[r] - 'a']++;
+
+                bool balanced = true;
+                for (int i = 0; i < 26; i++) {
+                    if (freq[i] != freq[s[r] - 'a'] && freq[i] != 0)
+                        balanced = false;
+                }
+                if (balanced)
+                    ans = max(ans, r - l + 1);
+            }
+        }
+        return ans;
+    }
+};

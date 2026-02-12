@@ -1,0 +1,63 @@
+// https://leetcode.com/problems/longest-balanced-substring-ii/
+// SO ANNOYING IMPLEMENTATION
+/*
+ cabba
+001112
+000122
+011111
+ ^   ^
+
+track array of 7 last_seen maps
+build current prefix sum
+for each case:
+    iterate prefix:
+        simplify freq (only subtract from included ones. the rest leave as is.)
+        add it to this case's last_seen array
+for each case:
+    iterate prefix:
+        find latest
+*/
+class Solution {
+public:
+    struct freq {
+        vector<int> count = {0, 0, 0};
+        // hash+simplify
+        long long hash(int include) {
+            long long out = 0;
+            int minimum = 1e5;
+            for (int i = 0; i < 3; i++) {
+                if (include >> i & 1)
+                    minimum = min(minimum, count[i]);
+            }
+            for (int i = 0; i < 3; i++) {
+                out *= 1e5 + 1;
+                out += count[i] - minimum * (include >> i & 1);
+            }
+            return out;
+        }
+    };
+    int longestBalanced(string s) {
+        int n = s.size();
+        vector<unordered_map<long long, int>> last_seen (7);
+        vector<freq> prefix (n+1);
+        // build prefix sum
+        for (int i = 1; i <= n; i++) {
+            prefix[i] = prefix[i-1];
+            prefix[i].count[s[i-1] - 'a']++;
+        }
+        // build last_seen
+        for (int include = 1; include <= 7; include++) {
+            for (int i = 1; i <= n; i++) {
+                last_seen[include-1][prefix[i].hash(include)] = i;
+            }
+        }
+        int ans = 0;
+        for (int include = 1; include <= 7; include++) {
+            for (int i = 0; i <= n; i++) {
+                int j = last_seen[include-1][prefix[i].hash(include)];
+                ans = max(ans, j-i);
+            }
+        }
+        return ans;
+    }
+};

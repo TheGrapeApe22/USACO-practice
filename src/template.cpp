@@ -3,13 +3,13 @@
 #define ln "\n"
 #define _ << " " <<
 #define all(x) (x).begin(), (x).end()
-using namespace std;
-using ll = long long;
-using pii = pair<int, int>;
+using namespace std; using ll = long long; using pii = pair<int, int>;
+template<typename T> ostream& operator<<(ostream& out, const vector<T>& v) {
+    cout << "["; for (uint i = 0; i+1 < v.size(); i++) cout << v[i] << ", "; cout << *v.rbegin() << "]"; return out;
+}
 
 int main() {
-    // freopen("file.in", "r", stdin);
-    // freopen("file.out", "w", stdout);
+    // freopen("file.in", "r", stdin); freopen("file.out", "w", stdout);
     cin.tie(nullptr); ios::sync_with_stdio(false);
     
 }

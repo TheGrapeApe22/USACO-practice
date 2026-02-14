@@ -1,4 +1,4 @@
-// https://codeforces.com/problemset/problem/2184/E
+// https://codeforces.com/problemset/problem/2184/E 2/14/26
 // HOLY SHIT THIS WORKED the editorial didn't make sense to me so i used gemini to explain and came up with some wacky monotonic stack solution AND IT WORKED
 #include <bits/stdc++.h>
 #define vec vector

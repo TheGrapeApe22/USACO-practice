@@ -12,4 +12,6 @@ int main() {
     // freopen("file.in", "r", stdin); freopen("file.out", "w", stdout);
     cin.tie(nullptr); ios::sync_with_stdio(false);
     
+    int t; cin >> t;
+    for (int t1 = 0; t1 < t; t1++);
 }

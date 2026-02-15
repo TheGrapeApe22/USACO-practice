@@ -1,3 +1,4 @@
+// https://codeforces.com/problemset/problem/2187/B
 #include <bits/stdc++.h>
 #define vec vector
 #define ln "\n"
@@ -37,6 +38,6 @@ int main() {
                 best = {a, b};
         };
 
-        
+        test(x, 1<<(leftmost1(x)+1));
     }
 }

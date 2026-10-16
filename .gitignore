@@ -1,5 +1,5 @@
 .vscode/
 !.vscode/settings.json
-src/a.out
-src/input.txt
-src/out.txt
+current/a.out
+current/input.txt
+current/out.txt

@@ -4,7 +4,7 @@
 #define _ << " " <<
 #define all(x) (x).begin(), (x).end()
 // #define int long long
-using namespace std; using ll = long long; using pii = pair<int, int>;
+using namespace std; using ll = long long; using pii = pair<int, int>; using vi = vector<int>;
 template<typename T> ostream& operator<<(ostream& out, const vector<T>& v) {
     cout << "["; for (size_t i = 0; i+1 < v.size(); i++) cout << v[i] << ", "; cout << *v.rbegin() << "]"; return out;
 }

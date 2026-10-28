@@ -2,6 +2,8 @@
 https://usaco.org/index.php?page=viewproblem2&cpid=1542
 YOOOO i thought this problem was gonna be impossible but i actually broke it down really well :D
 i am not gonna try to leave notes for this one lmao. check purple notebook if scavenging.
+
+also, i made at least 5 off-by-one errors :)
 """
 
 

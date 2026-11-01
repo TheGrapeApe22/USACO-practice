@@ -9,7 +9,7 @@ auto firstTrue = [](int low, int high, function<bool(int)> f) {
         else
             low = mid + 1;
     }
-    if (f(low)) return low;
+    if (low < high && f(low)) return low;
     return -1;
 };
 

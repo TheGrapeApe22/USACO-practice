@@ -1,0 +1,12 @@
+https://codeforces.com/problemset/problem/2275/G
+*1900
+
+sort edges by weight and connect them one by one, selling ones that connect already-connected ones (use DSU).
+this is essentially kruskall's algo.
+
+then sort the remaining edges and do a binary search search to see how many [sell/replace] actions maximize profit. (the graph is *unimodal* (beautiful word learned from gemini), so BS can be used to find the peak)
+
+confirmed, this is exactly the editorial. https://codeforces.com/problemset/problem/2275/G
+man, this was easy. i expected 1900 to require more head bashing
+
+yippee

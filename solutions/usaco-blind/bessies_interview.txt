@@ -1,0 +1,9 @@
+https://usaco.org/index.php?page=viewproblem2&cpid=1422
+rated 1750 by 2 people
+
+simulate events with priority queue
+when two farmers are open at the same time, connect those two farmers in the [not aforementioned] graph that we are constructing, then choose an arbitrary farmer
+to find all of bessie's possible interviewers, just see who's in the same connected component as the arbitrary farmer assigned to bessie
+
+confirmed with solution https://usaco.org/current/data/sol_prob1_silver_open24.html
+note: this is solution 2. solution 1 is kinda genius (simulate events backward). so freaking creative. wow.

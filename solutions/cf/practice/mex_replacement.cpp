@@ -17,6 +17,9 @@ optimize large gaps by multiplying by 2^(a-b-1) instead of adding (a-b) times.
 mistakes:
 * integer overflow
 * bad limit for integer overflow
+
+
+YOOOOO my solution exactly matches the editorial's explanation!!!
 */
 
 #include <bits/stdc++.h>

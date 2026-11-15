@@ -19,6 +19,10 @@ mistakes:
 * had to ask AI. my solution to the abc problem IS FLAWED. fails at a=b=3
 
 YESSSS I ADDED JUST ONE MORE LINE AND THE WHOLE THING WORKED I'M A GENIIUS YOOOOOOO
+
+after reading editorial:
+* YOOO MY SOLUTION IS O(n) AND THEIRS IS O(n log n)
+theirs is binsearch. interesting. i hadn't thought of the obvious 4n observation.
 */
 
 #include <bits/stdc++.h>
